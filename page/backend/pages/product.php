@@ -44,6 +44,11 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             แก้ไขรายการสินค้า
+                            <div style="float:right;margin-top: -7px;">
+                              <a href="addnew_product.php">
+                                <button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มสินค้าใหม่</button>
+                              </a>
+                            </div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -53,6 +58,7 @@
                                   <th>รหัสสินค้า</th>
                                   <th>ชื่อสินค้า</th>
                                   <th>ราคาสินค้า</th>
+                                  <th>จำนวนสินค้าคงเหลือ</th>
                                   <th>รูปภาพสินค้า</th>
                                   <th>ตัวเลือก</th>
                                 </tr>
@@ -69,11 +75,14 @@
                                   <td><?php echo $rs["product_id"]; ?></td>
                                   <td><?php echo $rs["product_name"]; ?></td>
                                   <td><?php echo $rs["product_price"] ?></td>
+                                  <td><?php echo $rs["product_num"] ?></td>
                                   <?php echo '<td><img width="80px" name="image" src="data:image/jpeg;base64,'.base64_encode( $rs['product_img'] ).'"/></td>'; ?>
                                   <td>
-                                    <button type="button" class="btn btn-warning">แก้ไข</button>
+                                    <a style="text-decoration: none;" href="edit_product.php?id=<?php echo $rs["product_id"]; ?>">
+                                      <button type="button" class="btn btn-warning">แก้ไข</button>
+                                    </a>
                                     <?php
-                                      echo "<a href=\"../../../process/deleteproduct.php?id=$rs[0]\" ";
+                                      echo "<a href=\"../../../process/backend/deleteproduct.php?id=$rs[0]\" ";
                                       echo "onclick=\"return confirm('ยืนยันการลบข้อมูลสินค้า $rs[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
                                     ?>
                                   </td>
