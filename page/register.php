@@ -12,27 +12,27 @@
         <div class="columns is-vcentered">
           <div class="column is-4 is-offset-4">
             <h1 class="title">
-              Register an Account
+              สมัครสมาชิก
             </h1>
             <form class="" action="../process/save_register.php" method="post">
               <div class="box">
-                <label class="label">Name</label>
+                <label class="label">ชื่อ</label>
                 <p class="control">
-                  <input class="input" type="text" name="name" placeholder="Name" required="">
+                  <input class="input" type="text" name="name" placeholder="ชื่อ-สกุล" required="">
                 </p>
-                <label class="label">Username</label>
+                <label class="label">ชื่อผู้ใช้</label>
                 <p class="control">
-                  <input class="input" type="text" name="username" placeholder="Username" required="">
-                </p>
-                <hr>
-                <label class="label">Password</label>
-                <p class="control">
-                  <input class="input" type="password" name="password" placeholder="Password" required="">
+                  <input class="input" type="text" name="username" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
                 </p>
                 <hr>
+                <label class="label">รหัสผ่าน</label>
                 <p class="control">
-                  <input type="submit" class="button is-primary" value="Register">
-                  <a href="../page/login.php" class="button is-default">Cancel</a>
+                  <input class="input" type="password" name="password" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
+                </p>
+                <hr>
+                <p class="control">
+                  <input type="submit" class="button is-primary" value="สมัคร">
+                  <a href="../page/login.php" class="button is-default">ยกเลิก</a>
                 </p>
               </div>
             </form>

@@ -113,7 +113,7 @@
               echo '
               <div class="notification is-warning" style="width:70%">
                 <div class="has-text-centered">
-                  Please login before making an order!
+                  กรุณาเข้าสู่ระบบ ก่อนการสั่งซื้อสินค้า !
                 </div>
               </div>';
             }
