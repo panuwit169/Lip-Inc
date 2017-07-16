@@ -34,7 +34,15 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">จัดการสินค้า</h1>
+                    <h1 class="page-header">จัดการสินค้า
+                      <a style="float:right;" href="addnew_brand.php">
+                        <button type="button" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มแบรนด์ใหม่</button>
+                      </a>
+                      <a style="float:right;margin-right:10px" href="addnew_protype.php">
+                        <button type="button" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มประเภทสินค้าใหม่</button>
+                      </a>
+                    </h1>
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -89,7 +97,6 @@
                                 </tr>
                                 <?php
                                   }
-                                  mysql_close($con);
                                 ?>
                               </tbody>
 
@@ -105,26 +112,42 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Dismissable Alerts
+                            จัดการประเภทสินค้า
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
-                            <div class="alert alert-info alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
-                            <div class="alert alert-warning alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
+                          <table id="protype" class="display" cellspacing="0" width="100%">
+                            <thead>
+                              <tr>
+                                <th>รหัสประเภทสินค้า</th>
+                                <th>ชื่อประเภทสินค้า</th>
+                                <th>ตัวเลือก</th>
+                              </tr>
+                            </thead>
+                            <?php
+                              $sqltxt2 = "SELECT * FROM product_type order by protype_id ASC";
+                              $result2 = mysql_query ($sqltxt2,$con);
+                            ?>
+                            <tbody>
+                              <?php
+                                while($rs2 = mysql_fetch_array($result2)){
+                              ?>
+                              <tr>
+                                <td><?php echo $rs2["protype_id"]; ?></td>
+                                <td><?php echo $rs2["protype_name"]; ?></td>
+                                <td>
+                                  <?php
+                                    echo "<a href=\"../../../process/backend/deleteprotype.php?id=$rs2[0]\" ";
+                                    echo "onclick=\"return confirm('ยืนยันการลบข้อมูลสินค้า $rs2[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
+                                  ?>
+                                </td>
+                              </tr>
+                              <?php
+                                }
+                              ?>
+                            </tbody>
+
+                          </table>
                         </div>
                         <!-- .panel-body -->
                     </div>
@@ -229,6 +252,7 @@
     //datatble
     $(document).ready(function(){
         $('#product').DataTable();
+        $('#protype').DataTable();
     });
     </script>
 
