@@ -6,7 +6,7 @@
       </a>
       <a href="index.php" class="nav-item is-tab is-hidden-mobile is-active">หน้าแรก</a>
       <a href="allproduct.php" class="nav-item is-tab is-hidden-mobile">สินค้า</a>
-      <a href="about.php" class="nav-item is-tab is-hidden-mobile">เกี่ยวกับ</a>
+      <a href="payment.php" class="nav-item is-tab is-hidden-mobile">แจ้งการชำระเงิน</a>
     </div>
     <span class="nav-toggle">
       <span></span>
@@ -16,7 +16,7 @@
     <div class="nav-right nav-menu">
       <a href="index.php" class="nav-item is-tab is-hidden-tablet is-active">หน้าแรก</a>
       <a href="allproduct.php" class="nav-item is-tab is-hidden-tablet">สินค้า</a>
-      <a href="about.php" class="nav-item is-tab is-hidden-tablet">เกี่ยวกับ</a>
+      <a href="payment.php" class="nav-item is-tab is-hidden-tablet">แจ้งการชำระเงิน</a>
       <?php
       $total = 0;
       for($i=0;$i<=(int)$_SESSION["intLine"];$i++)

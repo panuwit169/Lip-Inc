@@ -29,8 +29,11 @@
           </div>
           <div class="column is-9">
             <div class="container">
+              <div class="column is-9 notification is-warning">
+                <p style="text-align:center">!! โปรดจำหมายเลขสั่งซื้อสินค้าไว้ สำหรับการแจ้งการชำระเงิน !! </p>
+              </div>
               <h1 class="title" style="margin-top:30px">
-                ดูรายการออเดอร์สินค้า
+                รายการสั่งซื้อสินค้า
               </h1>
               <?php
               $strSQL = "SELECT * FROM orders WHERE order_id = '".$_GET["OrderID"]."' ";
@@ -41,7 +44,7 @@
               <table class="table" style="width:70%">
                 <tbody>
                   <tr>
-                    <td>หมายเลขออเดอร์สินค้า</td>
+                    <td>หมายเลขสั่งซื้อสินค้า</td>
                     <td><?php echo $objResult["order_id"];?></td>
                   </tr>
                   <tr>
@@ -122,6 +125,7 @@
                   <div style="width:70%">
                     <div class="has-text-centered">
                       <a href="print.php?OrderID=<?php echo $_GET["OrderID"];?>" target="_blank" class="button is-info is-outlined"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;&nbsp;พิมพ์รายงาน</a>
+                      <a href="payment.php" class="button is-primary is-outlined"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;แจ้งการชำระเงิน</a>
                       <a href="index.php" class="button is-success is-outlined"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;หน้าแรก</a>
                     </div>
                   </div>
