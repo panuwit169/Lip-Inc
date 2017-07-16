@@ -135,7 +135,7 @@
                                 <td>
                                   <?php
                                     echo "<a href=\"../../../process/backend/deleteprotype.php?id=$rs2[0]\" ";
-                                    echo "onclick=\"return confirm('ยืนยันการลบข้อมูลสินค้า $rs2[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
+                                    echo "onclick=\"return confirm('ยืนยันการลบข้อมูลประเภทสินค้า $rs2[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
                                   ?>
                                 </td>
                               </tr>
@@ -185,7 +185,7 @@
                                 <td>
                                   <?php
                                     echo "<a href=\"../../../process/backend/deletebrand.php?id=$rs3[0]\" ";
-                                    echo "onclick=\"return confirm('ยืนยันการลบข้อมูลสินค้า $rs3[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
+                                    echo "onclick=\"return confirm('ยืนยันการลบข้อมูลแบรนด์ $rs3[1]')\"><button type=\"button\" class=\"btn btn-danger\">ลบ</button></a>";
                                   ?>
                                 </td>
                               </tr>
