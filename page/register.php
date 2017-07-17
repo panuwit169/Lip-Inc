@@ -24,12 +24,15 @@
                 <p class="control">
                   <input class="input" type="text" name="username" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
                 </p>
-                <hr>
                 <label class="label">รหัสผ่าน</label>
                 <p class="control">
                   <input class="input" type="password" name="password" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
                 </p>
                 <hr>
+                <label class="label">ที่อยู่</label>
+                <p class="control">
+                  <textarea class="input" name="address" style="margin-bottom: 10px;height:100px" cols="0" rows="5" required></textarea>
+                </p>
                 <p class="control">
                   <input type="submit" class="button is-primary" value="สมัคร">
                   <a href="../page/login.php" class="button is-default">ยกเลิก</a>

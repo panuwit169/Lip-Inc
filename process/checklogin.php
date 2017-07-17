@@ -19,7 +19,7 @@ $password = $_POST['password'];
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['status'] = 1;
 
-        echo "<meta http-equiv='refresh' content='1;URL=../page/index.php'>";
+        echo "<meta http-equiv='refresh' content='1;URL=../page/backend/pages/index.php'>";
       }
       else {
         $_SESSION['ses_id'] = session_id();

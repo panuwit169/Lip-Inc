@@ -64,6 +64,12 @@
                           </div>
                       </div>
                       <div class="form-group required row">
+                          <label class="control-label col-md-2">ที่อยู่</label>
+                          <div class="controls col-md-8 ">
+                            <textarea class="form-control" name="detail" style="margin-bottom: 10px" cols="0" rows="7" readonly><?php echo $rs[5]; ?></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group required row">
                           <label class="control-label col-md-2">ระดับ</label>
                           <div class="controls col-md-8 ">
                             <select class="form-control" name="role">
@@ -72,7 +78,7 @@
                                 $result2 = mysql_query ($sqltxt2,$con);
                                 while($rs2 = mysql_fetch_array($result2)){
                               ?>
-                                <option value="<?php echo $rs2[0]; ?>" <?php if($rs2[1] == $rs[6]){ echo " selected";} ?>><?php echo $rs2[1]; ?></option>
+                                <option value="<?php echo $rs2[0]; ?>" <?php if($rs2[1] == $rs[7]){ echo " selected";} ?>><?php echo $rs2[1]; ?></option>
                               <?php } ?>
                             </select>
 

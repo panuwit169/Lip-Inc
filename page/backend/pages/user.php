@@ -69,7 +69,7 @@
                                   <td><?php echo $rs[0]; ?></td>
                                   <td><?php echo $rs[4]; ?></td>
                                   <td><?php echo $rs[1] ?></td>
-                                  <td><?php echo $rs[6] ?></td>
+                                  <td><?php echo $rs[7] ?></td>
                                   <td>
                                     <a style="text-decoration: none;" href="edit_user.php?id=<?php echo $rs[0]; ?>">
                                       <button type="button" class="btn btn-warning">แก้ไข / กำหนดสิทธิ์</button>
