@@ -5,9 +5,6 @@
                 <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="chart.php"><i class="fa fa-bar-chart-o fa-fw"></i> กราฟ</span></a>
-            </li>
-            <li>
                 <a href="order.php"><i class="fa fa-shopping-cart fa-fw"></i> รายการสั่งซื้อ</a>
             </li>
             <li>
