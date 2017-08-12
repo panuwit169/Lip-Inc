@@ -4,6 +4,13 @@
   ob_start();
   @session_start();
   include("../../../Env/config.php");
+  if($_SESSION['status'] != 1){
+    echo "<meta http-equiv='refresh' content='1;URL=../../../index.php'>";
+  } else if (!isset($_SESSION['status'])) {
+    echo "<meta http-equiv='refresh' content='1;URL=../../../index.php'>";
+  } else if ($_SESSION['status'] == null) {
+    echo "<meta http-equiv='refresh' content='1;URL=../../../index.php'>";
+  }
 ?>
 
 <!-- Header -->

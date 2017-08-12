@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("../Env/config.php");
-
 $username = $_POST['username'];
 $password = $_POST['password'];
 
@@ -17,6 +16,7 @@ $password = $_POST['password'];
       {
         $_SESSION['ses_id'] = session_id();
         $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
         $_SESSION['status'] = 1;
 
         echo "<meta http-equiv='refresh' content='1;URL=../page/backend/pages/index.php'>";
@@ -24,6 +24,7 @@ $password = $_POST['password'];
       else {
         $_SESSION['ses_id'] = session_id();
         $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
         $_SESSION['status'] = 2;
         echo "<meta http-equiv='refresh' content='1;URL=../page/index.php'>";
       }
