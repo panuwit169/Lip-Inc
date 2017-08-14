@@ -82,7 +82,8 @@
                           <tr>
                             <th>รหัสสินค้า</th>
                             <th>ชื่อสินค้า</th>
-                            <th>ราคาสินค้า</th>
+                            <th>ราคาสินค้าต่อหน่วย</th>
+                            <th>จำนวน</th>
                             <th>รูปสินค้า</th>
                           </tr>
                         </thead>
@@ -97,6 +98,7 @@
                         <td><?php echo $rs2["product_id"] ;?></td>
                         <td><?php echo $rs2["product_name"] ;?></td>
                         <td><?php echo number_format($rs2["product_price"],2) ;?></td>
+                        <td><?php echo $rs2["qty"];?></td>
                         <td><?php echo '<img width="80px" src="data:image/jpeg;base64,'.base64_encode( $rs2['product_img'] ).'"/>' ?></td>
                       </tr>
                       <?php $total += $rs2["product_price"];?>
