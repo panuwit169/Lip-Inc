@@ -16,6 +16,7 @@ $password = $_POST['password'];
       {
         $_SESSION['ses_id'] = session_id();
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['name'] = $user['name'];
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['status'] = 1;
@@ -25,6 +26,7 @@ $password = $_POST['password'];
       else {
         $_SESSION['ses_id'] = session_id();
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['name'] = $user['name'];
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['status'] = 2;

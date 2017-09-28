@@ -31,7 +31,7 @@
       <?php if(isset($_SESSION['ses_id'])){ ?>
         <div class="nav-item is-tab">
           <a href="options.php">
-            <?php echo $_SESSION['username'];?>
+            <?php echo $_SESSION['name'];?>
           </a>
         </div>
         <a href="../process/logout.php" class="nav-item is-tab">ออกจากระบบ</a>
