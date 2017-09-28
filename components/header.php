@@ -7,4 +7,6 @@
   <link rel="stylesheet" href="../css/products.css">
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/base.css">
+  <!-- datatable -->
+  <link href="../page/backend/vendor/dataTable/dataTable.min.css" rel="stylesheet">
 </head>

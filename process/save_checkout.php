@@ -6,9 +6,9 @@
   $SumTotal = 0;
 
   $strSQL = "
-  INSERT INTO orders (OrderDate,Name,Address,Tel,Email)
+  INSERT INTO orders (OrderDate,user_id,Name,Address,Tel,Email)
   VALUES
-  ('".date("Y-m-d H:i:s")."','".$_POST["txtName"]."','".$_POST["txtAddress"]."','".$_POST["txtTel"]."','".$_POST["txtEmail"]."')
+  ('".date("Y-m-d H:i:s")."','".$_SESSION['user_id']."','".$_POST["txtName"]."','".$_POST["txtAddress"]."','".$_POST["txtTel"]."','".$_POST["txtEmail"]."')
   ";
   mysql_query($strSQL) or die(mysql_error());
 

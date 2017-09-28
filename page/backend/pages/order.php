@@ -146,6 +146,7 @@
                                 <th>เวลาที่โอน</th>
                                 <th>บัญชี</th>
                                 <th>สถานะ</th>
+                                <th>เลขไปรษณีย์</th>
                                 <th>ตัวเลือก</th>
                               </tr>
                             </thead>
@@ -172,6 +173,14 @@
                                   } else if ($rs["status"] == "error"){
                                     echo "<span class='label label-danger'>ล้มเหลว</span>";
                                   }
+                                  ?>
+                                </td>
+                                <td>
+                                <?php if($rs["TrackingNo"] == ""){
+                                        echo "<a href='addtracking.php?id=". $rs["order_id"] ."'>-</a>";
+                                      } else{
+                                        echo "<a href='addtracking.php?id=". $rs["order_id"] ."'>" .$rs["TrackingNo"]. "</a>";
+                                      }
                                   ?>
                                 </td>
                                 <td>

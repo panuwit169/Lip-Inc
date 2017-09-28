@@ -30,7 +30,9 @@
       <a href="show.php" class="nav-item is-tab"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;&nbsp;<?php echo $total;?></a>
       <?php if(isset($_SESSION['ses_id'])){ ?>
         <div class="nav-item is-tab">
-          <?php echo $_SESSION['username'];?>
+          <a href="options.php">
+            <?php echo $_SESSION['username'];?>
+          </a>
         </div>
         <a href="../process/logout.php" class="nav-item is-tab">ออกจากระบบ</a>
       <?php } else { ?>
