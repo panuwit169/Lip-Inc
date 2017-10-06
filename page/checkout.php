@@ -81,29 +81,39 @@
               <h2 class="subtitle">
                 ที่อยู่สำหรับจัดส่ง
               </h2>
+              <?php
+              $strSQL2 = "SELECT * FROM useraccount WHERE id = '".$_SESSION['user_id']."' ";
+              $objQuery2 = mysql_query($strSQL2)  or die(mysql_error());
+              while($objResult2 = mysql_fetch_array($objQuery2)){
+                $name = $objResult2["name"];
+                $email = $objResult2["email"];
+                $tel = $objResult2["tel"];
+                $address = $objResult2["address"];
+              }
+              ?>
               <form name="form1" method="post" action="../process/save_checkout.php">
                 <div class="field" style="width:30%">
                   <label class="label">ชื่อ</label>
                   <p class="control">
-                    <input class="input" type="text" name="txtName" required="">
+                    <input class="input" type="text" name="txtName" value="<?php echo $name;?>" required="">
                   </p>
                 </div>
                 <div class="field" style="width:30%">
                   <label class="label">ที่อยู่</label>
                   <p class="control">
-                    <textarea class="textarea" name="txtAddress" required=""></textarea>
+                    <textarea class="textarea" name="txtAddress" required=""><?php echo $address;?></textarea>
                   </p>
                 </div>
                 <div class="field" style="width:30%">
                   <label class="label">เบอร์โทร</label>
                   <p class="control">
-                    <input class="input" type="text" name="txtTel" required="">
+                    <input class="input" type="text" name="txtTel" value="<?php echo $tel;?>" required="">
                   </p>
                 </div>
                 <div class="field" style="width:30%">
                   <label class="label">อีเมล</label>
                   <p class="control">
-                    <input class="input" type="email" name="txtEmail" required="">
+                    <input class="input" type="email" name="txtEmail" value="<?php echo $email;?>" required="">
                   </p>
                 </div>
                 <input type="submit" class="button is-success" name="Submit" value="ยืนยัน">

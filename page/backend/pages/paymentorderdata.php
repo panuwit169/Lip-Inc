@@ -101,7 +101,7 @@
                         <td><?php echo $rs2["qty"];?></td>
                         <td><?php echo '<img width="80px" src="data:image/jpeg;base64,'.base64_encode( $rs2['product_img'] ).'"/>' ?></td>
                       </tr>
-                      <?php $total += $rs2["product_price"];?>
+                      <?php $total += $rs2["product_price"]*$rs2["qty"];?>
                   <?php } ?>
                     </tbody>
                   </table>

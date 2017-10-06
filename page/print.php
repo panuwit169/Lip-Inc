@@ -25,10 +25,10 @@ $objQuery = mysql_query($strSQL)  or die(mysql_error());
 $objResult = mysql_fetch_array($objQuery);
 ?>
 
-<table class="table-report" style="width:80%;" style="border-collapse: collapse;" border="1">
+<table class="table-report" style="width:80%;" style="border-collapse: collapse;" >
   <tbody >
 		<tr style="padding: 5px">
-			<th colspan="2" style="border: 2px solid black;padding: 5px">รายละเอียดผู้สั่งซื้อ/จัดส่ง</th>
+			<th colspan="2" style="padding: 5px">รายละเอียดผู้สั่งซื้อ/จัดส่ง</th>
 		</tr>
     <tr>
       <td width="30%" style="padding: 5px">รหัสการสั่งซื้อ</td>

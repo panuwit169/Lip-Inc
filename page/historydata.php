@@ -134,7 +134,10 @@
                       <div class="row" style="text-align:right">
                           <label class="control-label col-md-12">ราคารวม <?php echo number_format($total,2); ?> บาท</label>
                       </div>
-                      <center><a href="options.php" class="button is-primary">ย้อนกลับ</a></center>
+                      <center>
+                        <a href="print.php?OrderID=<?php echo $_GET["id"];?>" target="_blank" class="button is-info is-outlined"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;&nbsp;พิมพ์รายงาน</a>
+                        <a href="options.php" class="button is-primary">ย้อนกลับ</a>
+                      </center>
                       </div>
                     </div>
                 </div>

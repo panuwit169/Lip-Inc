@@ -31,7 +31,7 @@
             <div class="container">
               <?php if($_GET['over'] == "true") {?>
               <div class="notification is-warning" style="width:70%">
-                ขออภัย ! คุณได้กรอกจำนวนสินค้าเกินจำนวนในคลังสินค้า ลองใหม่อีกครั้ง
+                ขออภัย ! คุณได้กรอกจำนวนสินค้า <?php echo $_GET["product"];?> เกินจำนวนในคลังสินค้า ลองใหม่อีกครั้ง
               </div>
               <?php } ?>
               <h1 class="title" style="margin-top:30px">

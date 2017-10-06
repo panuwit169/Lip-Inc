@@ -169,9 +169,9 @@ if($_SESSION['status'] != 1){
             $month04 = "เม.ย.";
             $month05 = "พ.ค.";
             $month06 = "มิ.ย.";
-            $month07 = "พ.ค.";
+            $month07 = "ก.ค.";
             $month08 = "ส.ค.";
-            $month09 = "ก.ค.";
+            $month09 = "ก.ย.";
             $month10 = "ต.ค.";
             $month11 = "พ.ย.";
             $month12 = "ธ.ค.";
@@ -190,51 +190,51 @@ if($_SESSION['status'] != 1){
             while($row0 = mysql_fetch_array($result0)){
               if(date("m",strtotime($row0["OrderDate"])) == 01){
                 $month01 = 'ม.ค.';
-                $sales01 += $row0["amount"];
+                $sales01 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 02){
                 $month02 = "ก.พ.";
-                $sales02 += $row0["amount"];
+                $sales02 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 03){
                 $month03 = "มี.ค.";
-                $sales03 += $row0["amount"];
+                $sales03 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 04){
                 $month04 = "เม.ย.";
-                $sales04 += $row0["amount"];
+                $sales04 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 05){
                 $month05 = "พ.ค.";
-                $sales05 += $row0["amount"];
+                $sales05 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 06){
                 $month06 = "มิ.ย.";
-                $sales06 += $row0["amount"];
+                $sales06 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 07){
-                $month07 = "พ.ค.";
-                $sales07 += $row0["amount"];
+                $month07 = "ก.ค.";
+                $sales07 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 08){
                 $month08 = "ส.ค.";
-                $sales08 += $row0["amount"];
+                $sales08 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 09){
-                $month09 = "ก.ค.";
-                $sales09 += $row0["amount"];
+                $month09 = "ก.ย.";
+                $sales09 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 10){
                 $month10 = "ต.ค.";
-                $sales10 += $row0["amount"];
+                $sales10 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 11){
                 $month11 = "พ.ย.";
-                $sales11 += $row0["amount"];
+                $sales11 = $row0["amount"];
               }
               else if (date("m",strtotime($row0["OrderDate"])) == 12){
                 $month12 = "ธ.ค.";
-                $sales12 += $row0["amount"];
+                $sales12 = $row0["amount"];
               }
             }
 
@@ -317,9 +317,9 @@ if($_SESSION['status'] != 1){
             $month04 = "เม.ย.";
             $month05 = "พ.ค.";
             $month06 = "มิ.ย.";
-            $month07 = "พ.ค.";
+            $month07 = "ก.ค.";
             $month08 = "ส.ค.";
-            $month09 = "ก.ค.";
+            $month09 = "ก.ย.";
             $month10 = "ต.ค.";
             $month11 = "พ.ย.";
             $month12 = "ธ.ค.";
@@ -361,7 +361,7 @@ if($_SESSION['status'] != 1){
                 $qty06 += $row["qty"];
               }
               else if (date("m",strtotime($row["OrderDate"])) == 07){
-                $month07 = "พ.ค.";
+                $month07 = "ก.ค";
                 $qty07 += $row["qty"];
               }
               else if (date("m",strtotime($row["OrderDate"])) == 08){
@@ -369,7 +369,7 @@ if($_SESSION['status'] != 1){
                 $qty08 += $row["qty"];
               }
               else if (date("m",strtotime($row["OrderDate"])) == 09){
-                $month09 = "ก.ค.";
+                $month09 = "ก.ย.";
                 $qty09 += $row["qty"];
               }
               else if (date("m",strtotime($row["OrderDate"])) == 10){

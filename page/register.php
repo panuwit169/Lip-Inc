@@ -24,11 +24,19 @@
                 <p class="control">
                   <input class="input" type="text" name="username" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
                 </p>
+                <label class="label">อีเมล</label>
+                <p class="control">
+                  <input class="input" type="email" name="email" placeholder="อีเมล" required="">
+                </p>
                 <label class="label">รหัสผ่าน</label>
                 <p class="control">
                   <input class="input" type="password" name="password" placeholder="ไม่เกิน 8 ตัวอักษร" required="">
                 </p>
                 <hr>
+                <label class="label">เบอร์โทร</label>
+                <p class="control">
+                  <input class="input" type="text" name="tel" required="">
+                </p>
                 <label class="label">ที่อยู่</label>
                 <p class="control">
                   <textarea class="input" name="address" style="margin-bottom: 10px;height:100px" cols="0" rows="5" required></textarea>

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+$product_name = "";
 include("../Env/config.php");
   for($i=0;$i<=(int)$_SESSION["intLine"];$i++)
   {
@@ -12,6 +13,7 @@ include("../Env/config.php");
       $stock_id = $objResult["product_num"];
       if($_POST["txtQty".$i] > $objResult["product_num"])
       {
+        $product_name .= $objResult["product_name"]." , ";
         $error="true";
       }
       else
@@ -21,7 +23,7 @@ include("../Env/config.php");
     }
   }
   if($error=="true"){
-    echo "<meta http-equiv='refresh' content='1;URL=../page/show.php?over=true'>";
+    echo "<meta http-equiv='refresh' content='1;URL=../page/show.php?over=true&product=$product_name'>";
   }
   else{
     echo "<meta http-equiv='refresh' content='1;URL=../page/show.php'>";
