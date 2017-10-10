@@ -23,6 +23,21 @@
 $strSQL = "SELECT * FROM orders WHERE order_id = '".$_GET["OrderID"]."' ";
 $objQuery = mysql_query($strSQL)  or die(mysql_error());
 $objResult = mysql_fetch_array($objQuery);
+
+$strSQL5 = "SELECT * FROM province WHERE PROVINCE_ID = '".$objResult['province']."'";
+$objQuery5 = mysql_query($strSQL5)  or die(mysql_error());
+$objResult5 = mysql_fetch_array($objQuery5);
+$province = $objResult5["PROVINCE_NAME"];
+
+$strSQL6 = "SELECT * FROM amphur WHERE AMPHUR_ID = '".$objResult['amphur']."'";
+$objQuery6 = mysql_query($strSQL6)  or die(mysql_error());
+$objResult6 = mysql_fetch_array($objQuery6);
+$amphur = $objResult6["AMPHUR_NAME"];
+
+$strSQL4 = "SELECT * FROM district WHERE DISTRICT_CODE = '".$objResult['district']."'";
+$objQuery4 = mysql_query($strSQL4)  or die(mysql_error());
+$objResult4 = mysql_fetch_array($objQuery4);
+$district = $objResult4["DISTRICT_NAME"];
 ?>
 
 <table class="table-report" style="width:80%;" style="border-collapse: collapse;" >
@@ -40,7 +55,7 @@ $objResult = mysql_fetch_array($objQuery);
     </tr>
     <tr>
       <td style="padding: 5px">ที่อยู่</td>
-      <td style="padding: 5px"><?php echo $objResult["Address"];?></td>
+      <td style="padding: 5px"><?php echo $objResult["Address"]." ".$amphur." ".$district." ".$province." ".$objResult["postcode"];?></td>
     </tr>
     <tr>
       <td style="padding: 5px">เบอร์โทร</td>

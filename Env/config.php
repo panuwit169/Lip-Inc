@@ -1,6 +1,11 @@
 <meta charset="utf-8">
 <?php
-$con = mysql_connect("localhost","root","1234");
-mysql_select_db("cosmetic",$con);
-mysql_query("SET NAMES utf8");
+  $servername = "localhost";
+  $username = "root";
+  $password = "1234";
+  $db = "cosmetic";
+
+  $con = mysql_connect($servername,$username,$password);
+  mysql_select_db($db,$con);
+  mysql_query("SET NAMES utf8");
 ?>

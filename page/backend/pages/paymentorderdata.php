@@ -48,6 +48,7 @@
                     $tel = $rs["Tel"];
                     $email = $rs["Email"];
                     $price = $rs["amount"];
+                    $img = $rs["img"];
                     $total = 0;
                   }
                   ?>
@@ -76,6 +77,10 @@
                       <div class="row">
                           <label class="control-label col-md-3">อีเมลลูกค้า</label>
                           <label class="control-label col-md-7"><?php echo $email; ?></label>
+                      </div>
+                      <div class="row">
+                          <label class="control-label col-md-3">หลักฐานการโอนเงิน</label>
+                          <label class="control-label col-md-7"><?php echo '<img width="500px" src="data:image/jpeg;base64,'.base64_encode( $img ).'"/>' ?></label>
                       </div>
                       <table class="table">
                         <thead>

@@ -39,6 +39,21 @@
               $strSQL = "SELECT * FROM orders WHERE order_id = '".$_GET["OrderID"]."' ";
               $objQuery = mysql_query($strSQL)  or die(mysql_error());
               $objResult = mysql_fetch_array($objQuery);
+
+              $strSQL2 = "SELECT * FROM province WHERE PROVINCE_ID = '".$objResult['province']."'";
+              $objQuery2 = mysql_query($strSQL2)  or die(mysql_error());
+              $objResult2 = mysql_fetch_array($objQuery2);
+              $province = $objResult2["PROVINCE_NAME"];
+
+              $strSQL3 = "SELECT * FROM amphur WHERE AMPHUR_ID = '".$objResult['amphur']."'";
+              $objQuery3 = mysql_query($strSQL3)  or die(mysql_error());
+              $objResult3 = mysql_fetch_array($objQuery3);
+              $amphur = $objResult3["AMPHUR_NAME"];
+
+              $strSQL4 = "SELECT * FROM district WHERE DISTRICT_CODE = '".$objResult['district']."'";
+              $objQuery4 = mysql_query($strSQL4)  or die(mysql_error());
+              $objResult4 = mysql_fetch_array($objQuery4);
+              $district = $objResult4["DISTRICT_NAME"];
               ?>
 
               <table class="table" style="width:70%">
@@ -53,7 +68,7 @@
                   </tr>
                   <tr>
                     <td>ที่อยู่สำหรับจัดส่ง</td>
-                    <td><?php echo $objResult["Address"];?></td>
+                    <td><?php echo $objResult["Address"]." ".$amphur." ".$district." ".$province." ".$objResult["postcode"];?></td>
                   </tr>
                   <tr>
                     <td>เบอร์โทร</td>
@@ -125,7 +140,7 @@
                   <div style="width:70%">
                     <div class="has-text-centered">
                       <a href="print.php?OrderID=<?php echo $_GET["OrderID"];?>" target="_blank" class="button is-info is-outlined"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;&nbsp;พิมพ์รายงาน</a>
-                      <a href="payment.php" class="button is-primary is-outlined"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;แจ้งการชำระเงิน</a>
+                      <a href="payment.php?id=<?php echo $objResult["order_id"]; ?>" class="button is-primary is-outlined"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;แจ้งการชำระเงิน</a>
                       <a href="index.php" class="button is-success is-outlined"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;หน้าแรก</a>
                     </div>
                   </div>

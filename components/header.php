@@ -9,4 +9,8 @@
   <link rel="stylesheet" href="../css/base.css">
   <!-- datatable -->
   <link href="../page/backend/vendor/dataTable/dataTable.min.css" rel="stylesheet">
+  <!-- นำเข้า Bootstrap CSS -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+	<!-- นำเข้า Select2 CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
 </head>

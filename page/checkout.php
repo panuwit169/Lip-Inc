@@ -89,6 +89,10 @@
                 $email = $objResult2["email"];
                 $tel = $objResult2["tel"];
                 $address = $objResult2["address"];
+                $postcode= $objResult2["postcode"];
+                $province= $objResult2["province"];
+                $amphur= $objResult2["amphur"];
+                $district= $objResult2["district"];
               }
               ?>
               <form name="form1" method="post" action="../process/save_checkout.php">
@@ -98,12 +102,57 @@
                     <input class="input" type="text" name="txtName" value="<?php echo $name;?>" required="">
                   </p>
                 </div>
+
                 <div class="field" style="width:30%">
                   <label class="label">ที่อยู่</label>
                   <p class="control">
-                    <textarea class="textarea" name="txtAddress" required=""><?php echo $address;?></textarea>
+                    <input class="input" name="txtAddress" value="<?php echo $address;?>" required="">
                   </p>
                 </div>
+
+                <div class="field" style="width:30%">
+                  <label class="label">จังหวัด</label>
+                  <div class="control">
+                    <div class="select">
+          						<select class="select2-single" name="province" id="province">
+          							<option id="province_list"> เลือกจังหวัด </option>
+          						</select>
+          					</div>
+            			</div>
+                </div>
+                <input type="hidden" name="hidden_province" value="<?php echo $province;?>">
+
+                <div class="field" style="width:30%">
+                  <label class="label">อำเภอ</label>
+                  <div class="control">
+                    <div class="select">
+          						<select class="select2-single" name="amphur" id="amphur">
+          							<option id="amphur_list"> เลือกอำเภอ </option>
+                      </select>
+          					</div>
+            			</div>
+                </div>
+                <input type="hidden" name="hidden_amphur" value="<?php echo $amphur;?>">
+
+                <div class="field" style="width:30%">
+            			<label class="label">ตำบล</label>
+                  <div class="control">
+                    <div class="select">
+          						<select class="select2-single" name="district" id="district">
+          							<option id="district_list"> เลือกตำบล </option>
+                      </select>
+          					</div>
+            			</div>
+                </div>
+                <input type="hidden" name="hidden_district" value="<?php echo $district;?>">
+
+                <div class="field" style="width:30%">
+                  <label class="label">รหัสไปรษณีย์</label>
+                  <p class="control">
+                    <input class="input" type="number" name="postcode" value="<?php echo $postcode;?>" required="">
+                  </p>
+                </div>
+
                 <div class="field" style="width:30%">
                   <label class="label">เบอร์โทร</label>
                   <p class="control">
@@ -134,6 +183,128 @@
         </div>
       </div>
     </div>
+
+    <!-- นำเข้า Javascript jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+
+    <script>
+
+  			$(function(){
+          var province_id = $('input[name=hidden_province]').val()
+          var amphur_id = $('input[name=hidden_amphur]').val()
+          var district_id = $('input[name=hidden_district]').val()
+
+  				//เรียกใช้งาน Select2
+  				$(".select2-single").select2();
+          $(".select2-selection__arrow").hide();;
+          $(".select2-container").css("width","260px");
+
+  				//ดึงข้อมูล province จากไฟล์ get_data.php
+  				$.ajax({
+  					url:"get_data.php",
+  					dataType: "json", //กำหนดให้มีรูปแบบเป็น Json
+  					data:{show_province:'show_province'}, //ส่งค่าตัวแปร show_province เพื่อดึงข้อมูล จังหวัด
+  					success:function(data){
+  						//วนลูปแสดงข้อมูล ที่ได้จาก ตัวแปร data
+  						$.each(data, function( index, value ) {
+  							//แทรก Elements ใน id province  ด้วยคำสั่ง append
+  							  $("#province").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+  						});
+              $("#province").val(province_id).change();
+  					}
+  				});
+
+
+  				//แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
+  				$("#province").change(function(){
+
+  					//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+  					var province_id = $(this).val();
+
+  					$.ajax({
+  						url:"get_data.php",
+  						dataType: "json",//กำหนดให้มีรูปแบบเป็น Json
+  						data:{province_id:province_id},//ส่งค่าตัวแปร province_id เพื่อดึงข้อมูล อำเภอ ที่มี province_id เท่ากับค่าที่ส่งไป
+  						success:function(data){
+
+  							//กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+  							$("#amphur").text("");
+
+  							//วนลูปแสดงข้อมูล ที่ได้จาก ตัวแปร data
+  							$.each(data, function( index, value ) {
+
+  								//แทรก Elements ข้อมูลที่ได้  ใน id amphur  ด้วยคำสั่ง append
+  								  $("#amphur").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+  							});
+                $("#amphur").val(amphur_id).change();
+  						}
+  					});
+
+  				});
+
+  				//แสดงข้อมูลตำบล โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่  #amphur
+  				$("#amphur").change(function(){
+
+  					//กำหนดให้ ตัวแปร amphur_id มีค่าเท่ากับ ค่าของ  #amphur ที่กำลังถูกเลือกในขณะนั้น
+  					var amphur_id = $(this).val();
+
+  					$.ajax({
+  						url:"get_data.php",
+  						dataType: "json",//กำหนดให้มีรูปแบบเป็น Json
+  						data:{amphur_id:amphur_id},//ส่งค่าตัวแปร amphur_id เพื่อดึงข้อมูล ตำบล ที่มี amphur_id เท่ากับค่าที่ส่งไป
+  						success:function(data){
+
+  							  //กำหนดให้ข้อมูลใน #district เป็นค่าว่าง
+  							  $("#district").text("");
+
+  							//วนลูปแสดงข้อมูล ที่ได้จาก ตัวแปร data
+  							$.each(data, function( index, value ) {
+
+  							  //แทรก Elements ข้อมูลที่ได้  ใน id district  ด้วยคำสั่ง append
+  							  $("#district").append("<option value='" + value.id + "'> " + value.name + "</option>");
+
+  							});
+                $("#district").val(district_id).change();
+  						}
+  					});
+
+  				});
+
+  				//คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่  #district
+  				$("#district").change(function(){
+
+  					//นำข้อมูลรายการ จังหวัด ที่เลือก มาใส่ไว้ในตัวแปร province
+  					var province = $("#province option:selected").text();
+
+  					//นำข้อมูลรายการ อำเภอ ที่เลือก มาใส่ไว้ในตัวแปร amphur
+  					var amphur = $("#amphur option:selected").text();
+
+  					//นำข้อมูลรายการ ตำบล ที่เลือก มาใส่ไว้ในตัวแปร district
+  					var district = $("#district option:selected").text();
+
+  				});
+
+          //นำข้อมูลรายการ จังหวัด ที่เลือก มาใส่ไว้ในตัวแปร province
+          // $("#province option[value='1']:selected").text();
+          $('#province').val(1)
+          $('#province option[value="1"]').attr("selected",true);
+
+          //นำข้อมูลรายการ อำเภอ ที่เลือก มาใส่ไว้ในตัวแปร amphur
+          $("#amphur option:selected").text();
+
+          //นำข้อมูลรายการ ตำบล ที่เลือก มาใส่ไว้ในตัวแปร district
+          $("#district option:selected").text();
+
+
+  			});
+
+  	</script>
 
     <?php
       $root = $_SERVER['DOCUMENT_ROOT'];

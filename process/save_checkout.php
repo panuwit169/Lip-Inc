@@ -5,10 +5,15 @@
   $Total = 0;
   $SumTotal = 0;
 
+  $province = $_POST["province"];
+  $amphur = $_POST["amphur"];
+  $district = $_POST["district"];
+  $postcode = $_POST["postcode"];
+
   $strSQL = "
-  INSERT INTO orders (OrderDate,user_id,Name,Address,Tel,Email)
+  INSERT INTO orders (OrderDate,user_id,Name,Address,province,amphur,district,postcode,Tel,Email)
   VALUES
-  ('".date("Y-m-d H:i:s")."','".$_SESSION['user_id']."','".$_POST["txtName"]."','".$_POST["txtAddress"]."','".$_POST["txtTel"]."','".$_POST["txtEmail"]."')
+  ('".date("Y-m-d H:i:s")."','".$_SESSION['user_id']."','".$_POST["txtName"]."','".$_POST["txtAddress"]."','".$province."','".$amphur."','".$district."','".$postcode."','".$_POST["txtTel"]."','".$_POST["txtEmail"]."')
   ";
   mysql_query($strSQL) or die(mysql_error());
 

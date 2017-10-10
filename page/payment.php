@@ -37,11 +37,11 @@
             <h1 class="title">
               แจ้งการโอนเงิน
             </h1>
-            <form action="../process/confirm_payment.php" method="post">
+            <form action="../process/confirm_payment.php" method="post" enctype="multipart/form-data">
             <table>
               <tr>
                 <td>หมายเลขการสั่งซื้อ</td>
-                <td><input type="number" class="input" style="width:200px" name="paymentid" value="" required></td>
+                <td><input type="number" class="input" style="width:200px" name="paymentid" value="<?php echo $_GET["id"];?>" required></td>
               </tr>
               <tr>
                 <td width="20%">บัญชีที่โอน</td>
@@ -59,6 +59,10 @@
               <tr>
                 <td>เวลา (โดยประมาณ)</td>
                 <td><input type="text" class="input" style="width:200px" name="timepayment" value="" required></td>
+              </tr>
+              <tr>
+                <td>หลักฐานการโอนเงิน</td>
+                <td><input type="file" style="width:200px" name="filUpload" accept="image/*" required></td>
               </tr>
               <tr>
                 <td>จำนวนเงิน</td>
