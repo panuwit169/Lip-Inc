@@ -38,7 +38,7 @@
                 </div>
                 <?php
                   $id = $_GET['id'];
-                  $sqltxt = "SELECT * FROM orders where order_id = $id";
+                  $sqltxt = "SELECT * FROM orders where order_id = '$id'";
                   $result = mysql_query ($sqltxt,$con);
                   while($rs = mysql_fetch_array($result)){
                 ?>

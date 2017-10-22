@@ -38,7 +38,7 @@
                 </div>
                 <?php
                   $id = $_GET['id'];
-                  $sqltxt = "SELECT * FROM orders JOIN payment ON orders.order_id = payment.order_id WHERE orders.order_id = $id";
+                  $sqltxt = "SELECT * FROM orders JOIN payment ON orders.order_id = payment.order_id WHERE orders.order_id = '$id'";
                   $result = mysql_query ($sqltxt,$con);
                   while($rs = mysql_fetch_array($result)){
                     $payment_id = $rs["id"];
@@ -95,7 +95,7 @@
                         <tbody>
 
                 <?php
-                  $sqltxt2 = "SELECT * FROM orders JOIN payment ON orders.order_id = payment.order_id JOIN orders_detail ON orders.order_id = orders_detail.order_id JOIN product ON product.product_id = orders_detail.product_id WHERE orders.order_id = $id ORDER BY payment.id ASC";
+                  $sqltxt2 = "SELECT * FROM orders JOIN payment ON orders.order_id = payment.order_id JOIN orders_detail ON orders.order_id = orders_detail.order_id JOIN product ON product.product_id = orders_detail.product_id WHERE orders.order_id = '$id' ORDER BY payment.id ASC";
                   $result2 = mysql_query ($sqltxt2,$con);
                   while($rs2 = mysql_fetch_array($result2)){
                 ?>

@@ -18,7 +18,7 @@
   ?>
 
   <?php
-    $sql = mysql_query("SELECT * FROM product JOIN brand ON product.brand_id = brand.brand_id where product_id = $id ");
+    $sql = mysql_query("SELECT * FROM product JOIN brand ON product.brand_id = brand.brand_id where product_id = '$id' ");
     $num = mysql_num_rows($sql);
     while($user = mysql_fetch_array($sql)){
   ?>

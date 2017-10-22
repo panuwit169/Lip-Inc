@@ -21,7 +21,26 @@ if($_FILES["filUpload"]["name"] != ""){
 		$FileData = addslashes($ReadBinary);
 
 		//*** Insert Record ***//;
-		$strSQL = "INSERT INTO product (product_name, brand_id, product_detail, product_price, protype_id ,product_num,product_img) VALUES ('$product_name','$brand','$detail','$price','$type','$qty','$FileData')";
+		$strSQL = "INSERT INTO product (product_id,product_name, brand_id, product_detail, product_price, protype_id ,product_num,product_img) VALUES (
+			CONCAT(
+	            DATE_FORMAT(NOW(), 'PD%d%m%Y'),
+	            LPAD(
+	                IFNULL(
+	                    (SELECT
+	                        SUBSTR(product_id, 11)
+	                        FROM product AS alias
+	                        WHERE SUBSTR(product_id, 1, 10) = DATE_FORMAT(NOW(), 'PD%d%m%Y')
+	                        ORDER BY product_id DESC
+	                        LIMIT 1
+	                    )
+	                    + 1,
+	                    1
+	                ),
+	                6,
+	                '0'
+	            )
+	        ),
+			'$product_name','$brand','$detail','$price','$type','$qty','$FileData')";
 		mysql_query($strSQL,$con);
 }
 echo "<meta http-equiv='refresh' content='1;URL=../../page/backend/pages/product.php'>";

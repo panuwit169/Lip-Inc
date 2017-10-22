@@ -12,7 +12,7 @@ if($_GET['status'] == "notcheck"){
   mysql_query($sql,$con) or die("UPDATE ลงตาราง product มีข้อผิดพลาดเกิดขึ้น".
   mysql_error());
   $count=0;
-  $strSQL = "SELECT * FROM payment JOIN orders_detail ON payment.order_id = orders_detail.order_id WHERE payment.id = $id";
+  $strSQL = "SELECT * FROM payment JOIN orders_detail ON payment.order_id = orders_detail.order_id WHERE payment.id = '$id'";
   $result = mysql_query($strSQL,$con) or die(mysql_error());
   while($row = mysql_fetch_array($result)){
       $data[$count][0] = $row['id'];
@@ -41,7 +41,7 @@ if($_GET['status'] == "notcheck"){
   mysql_query($sql,$con) or die("UPDATE ลงตาราง product มีข้อผิดพลาดเกิดขึ้น".
   mysql_error());
   $count=0;
-  $strSQL = "SELECT * FROM payment JOIN orders_detail ON payment.order_id = orders_detail.order_id WHERE payment.id = $id";
+  $strSQL = "SELECT * FROM payment JOIN orders_detail ON payment.order_id = orders_detail.order_id WHERE payment.id = '$id'";
   $result = mysql_query($strSQL,$con) or die(mysql_error());
   while($row = mysql_fetch_array($result)){
       $data[$count][0] = $row['id'];

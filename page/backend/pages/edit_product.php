@@ -38,7 +38,7 @@
                 </div>
                 <?php
                   $id = $_GET['id'];
-                  $sqltxt = "SELECT * FROM product where product_id=$id order by product_id ASC";
+                  $sqltxt = "SELECT * FROM product where product_id='$id' order by product_id ASC";
                   $result = mysql_query ($sqltxt,$con);
                   while($rs = mysql_fetch_array($result)){
                 ?>

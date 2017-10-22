@@ -29,7 +29,7 @@
           </div>
         <div class="column is-9">
           <div class="container">
-            <?php if ($_GET['id'] == "success"){?>
+            <?php if ($_GET['alert'] == "success"){?>
               <div class="column is-9 notification is-success">
                 <center>คุณได้แจ้งการโอนเงินสำเร็จแล้ว</center>
               </div>
@@ -41,7 +41,7 @@
             <table>
               <tr>
                 <td>หมายเลขการสั่งซื้อ</td>
-                <td><input type="number" class="input" style="width:200px" name="paymentid" value="<?php echo $_GET["id"];?>" required></td>
+                <td><input type="text" class="input" style="width:200px" name="paymentid" value="<?php echo $_GET["id"];?>" required></td>
               </tr>
               <tr>
                 <td width="20%">บัญชีที่โอน</td>
